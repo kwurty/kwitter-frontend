@@ -1,0 +1,8 @@
+.post-list-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.postlist {
+  max-width: 500px;
+}

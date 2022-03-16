@@ -1,43 +1,82 @@
 import React, { createContext, useState, useEffect } from "react";
+import { checkForUser, logoutUser } from '../utils/LoadUser'
+import jwt_decode from "jwt-decode";
 
-// create context
-const UserContext = createContext();
+const UserContext = createContext({ name: '', auth: false });
+// This also works: const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
-    // the value that will be given to the context
-    const [user, setUser] = useState(null);
+    // User is the name of the "data" that gets stored in context
+    const [user, setUser] = useState({ id: undefined, auth: false, username: undefined });
 
-    // fetch a user from a fake backend API
-    useEffect(() => {
-        const fetchUser = () => {
-            // this would usually be your own backend, or localStorage
-            // for example
-            if (localStorage.getItem('kwurty-simple-posts')) {
-                fetch("https://kwurty-fastapi-tutorial.herokuapp.com/posts", {
-                    headers: {
-                        "Authorization": localStorage.getItem('kwurty-simple-posts')
-                    }
-                })
-                    .then((response) => {
-                        if (response.status === 401) {
-                            return localStorage.removeItem('kwurty-simple-posts')
-                        }
+    // Login updates the user data with a name parameter
+    const login = (user) => {
+        // Returns the access token if it is there or it will return null
+        if (user) {
+            checkForUser(user)
+            let temp_user = jwt_decode(user)
+            setUser({ "id": temp_user.user_id, "username": temp_user.username, auth: true, token: user })
+        }
+    }
+    // Logout updates the user data to default
+    const logout = () => {
+        setUser({ id: undefined, auth: false, username: undefined, token: undefined })
+        logoutUser()
+    };
 
-                    })
-                    .catch((error) => console.log("error!"));
-            }
+    const testToken = async (token) => {
 
+        token = token.replaceAll('"', '')
+        let myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
         };
 
-        fetchUser();
-    }, []);
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/posts/`, requestOptions)
+        let status = await response.status
+        if (status !== 401) {
+            return true;
+        }
+        return false;
+    }
+
+    useEffect(() => {
+
+        // test the token to see if it still functions
+        let tokenCheck = async (token) => {
+
+            if (!token) return;
+
+            // invoke test call to API
+            let token_is_valid = await testToken(token)
+
+            // if it is still good, invoke the login function
+            if (token_is_valid) {
+                login(token)
+            }
+            // otherwise, logout so we don't keep checking a bad token
+            else {
+                // logout()
+            }
+        }
+
+        // grab localtoken for testing
+        let localStorageToken = checkForUser()
+
+        // test the token
+        tokenCheck(localStorageToken)
+
+    }, [])
 
     return (
-        // the Provider gives access to the context to its children
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user, login, logout }}>
             {children}
         </UserContext.Provider>
     );
-};
+}
 
-export { UserContext, UserContextProvider };
+export { UserContextProvider, UserContext }

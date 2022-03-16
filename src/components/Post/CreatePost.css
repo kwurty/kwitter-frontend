@@ -1,0 +1,129 @@
+.create-post-wrapper {
+  max-width: 500px;
+  width: 480px;
+}
+.input-box {
+  padding-top: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.input-box .tweet-area {
+  position: relative;
+  min-height: 110px;
+  max-height: 100px;
+  width: 100%;
+  overflow-y: auto;
+}
+.tweet-area::-webkit-scrollbar {
+  width: 0px;
+}
+
+.tweet-area textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+  border: 0;
+  width: 325px;
+  height: 105px;
+  resize: none;
+  overflow-y: hidden;
+  outline: none;
+}
+.tweet-area .placeholder {
+  position: absolute;
+  margin-top: -3px;
+  font-size: 22px;
+  color: #98a5b1;
+  pointer-events: none;
+}
+.tweet-area .input {
+  outline: none;
+  font-size: 17px;
+  min-height: inherit;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.tweet-area .editable {
+  position: relative;
+  z-index: 5;
+}
+.tweet-area .readonly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: transparent;
+  background: transparent;
+}
+.readonly .highlight {
+  background: #fd9bb0;
+}
+.input-box .privacy {
+  color: var(--light-blue);
+  margin: 15px 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.privacy:hover,
+.icons li:hover {
+  background: #e7f5fe;
+}
+.privacy i {
+  font-size: 18px;
+}
+.privacy span {
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 7px;
+}
+.bottom {
+  display: flex;
+  margin-top: 13px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.bottom .icons {
+  display: inline-flex;
+}
+
+.bottom .content {
+}
+.bottom .counter {
+  color: #98a5b1;
+  font-weight: 100;
+  font-size: smaller;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid #aab8c2;
+}
+.bottom .content button {
+  z-index: 11;
+  padding: 9px 18px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--light-blue);
+  color: #fff;
+  cursor: pointer;
+  opacity: 1;
+  transition: background 0.2s ease;
+}
+.bottom .content button:hover {
+  padding: 9px 18px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--dark-blue);
+  color: #fff;
+  cursor: pointer;
+  opacity: 1;
+  transition: background 0.2s ease;
+}

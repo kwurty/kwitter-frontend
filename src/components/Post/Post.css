@@ -1,0 +1,87 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  width: 100%;
+  min-width: 500px;
+  border-top: 1px solid rgb(219, 219, 219);
+  padding-top: 10px;
+}
+
+.post:hover {
+  cursor: pointer;
+  background-color: rgb(241, 241, 241);
+}
+
+.post .author {
+  display: flex;
+  height: 40px;
+
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+
+.post .author .username {
+  color: #8a8a8a;
+  margin-left: 5px;
+  font-size: smaller;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.post .content .title {
+  font-size: xx-large;
+  margin-left: 15px;
+  color: var(--black);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.post .author .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font: 1.2em sans-serif;
+  color: var(--white);
+  width: 40px;
+  background: var(--light-blue);
+  border-radius: 100%;
+}
+
+.post .title {
+  color: var(--white);
+}
+
+.post .content {
+  margin-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  color: var(--black);
+}
+
+.post .content .info {
+  display: flex;
+}
+
+.post .content .info .date {
+  color: #8a8a8a;
+  font-size: smaller;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.post .content .info .date {
+  color: #8a8a8a;
+  font-size: smaller;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.post .content .info .likes {
+  color: #8a8a8a;
+  font-size: smaller;
+  padding-left: 15px;
+  padding-right: 15px;
+}
