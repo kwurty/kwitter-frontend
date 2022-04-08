@@ -7,7 +7,7 @@ const UserContext = createContext({ name: '', auth: false });
 
 const UserContextProvider = ({ children }) => {
     // User is the name of the "data" that gets stored in context
-    const [user, setUser] = useState({ id: undefined, auth: false, username: undefined });
+    const [user, setUser] = useState({ id: undefined, auth: false, username: undefined, displayname: undefined });
 
     // Login updates the user data with a name parameter
     const login = (user) => {
@@ -15,7 +15,7 @@ const UserContextProvider = ({ children }) => {
         if (user) {
             checkForUser(user)
             let temp_user = jwt_decode(user)
-            setUser({ "id": temp_user.user_id, "username": temp_user.username, auth: true, token: user })
+            setUser({ "id": temp_user.user_id, "username": temp_user.username, 'auth': true, 'token': user, 'displayname': temp_user.displayname })
         }
     }
     // Logout updates the user data to default
@@ -36,12 +36,15 @@ const UserContextProvider = ({ children }) => {
             redirect: 'follow'
         };
 
-        let response = await fetch(`${process.env.REACT_APP_API_URL}/posts/`, requestOptions)
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/refresh`, requestOptions)
         let status = await response.status
-        if (status !== 401) {
-            return true;
+        if (status === 401) {
+            return logoutUser()
         }
-        return false;
+
+        let userInfo = await response.json()
+        let accessToken = await userInfo.access_token
+        login(accessToken)
     }
 
     useEffect(() => {
@@ -52,16 +55,16 @@ const UserContextProvider = ({ children }) => {
             if (!token) return;
 
             // invoke test call to API
-            let token_is_valid = await testToken(token)
+            testToken(token)
 
-            // if it is still good, invoke the login function
-            if (token_is_valid) {
-                login(token)
-            }
-            // otherwise, logout so we don't keep checking a bad token
-            else {
-                // logout()
-            }
+            // // if it is still good, invoke the login function
+            // if (token_is_valid) {
+            //     login(token)
+            // }
+            // // otherwise, logout so we don't keep checking a bad token
+            // else {
+            //     // logout()
+            // }
         }
 
         // grab localtoken for testing

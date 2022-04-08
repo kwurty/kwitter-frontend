@@ -1,6 +1,6 @@
 :root {
   --yellow: #fdf0d5;
-  --light-blue: #669bbc;
+  --light-blue: #1d9bf0;
   --dark-blue: #003049;
   --light-red: #c1121f;
   --dark-red: #780000;
@@ -14,9 +14,56 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+
+html {
+  overflow-y: scroll;
+}
 .center {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
+  padding: 0 3em;
+}
+
+.left-panel {
+  height: 100vh;
+  width: 260px;
+}
+
+.center .middle-panel {
+  min-width: 542px;
+}
+
+.center .middle-panel .search-bar {
+  display: none;
+}
+
+.center .right-panel {
+  padding-left: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .center {
+    padding: 0 0 0 15px;
+    justify-content: flex-start;
+  }
+  .center .left-panel {
+    width: 60px;
+  }
+
+  .center .middle-panel {
+    max-width: 300px;
+    min-width: 0;
+  }
+  .center .right-panel {
+    padding-left: 0;
+    display: none;
+  }
+  .center .middle-panel .search-bar {
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+  }
 }

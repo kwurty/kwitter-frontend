@@ -1,8 +1,33 @@
 .post-list-wrapper {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .postlist {
-  max-width: 500px;
+  max-width: 542px;
+}
+
+.scroll-enter {
+  opacity: 0.01;
+}
+
+.scroll-enter.scroll-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.scroll-leave {
+  opacity: 1;
+}
+
+.scroll-leave.scroll-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+@media screen and (max-width: 1200px) {
+  .postlist {
+    max-width: none;
+    width: auto;
+  }
 }

@@ -1,0 +1,12 @@
+.explore {
+  max-width: 542px;
+}
+
+.explore .random-hashtags .hashtag {
+  padding: 5px 0px 5px 15px;
+}
+
+.explore .random-hashtags .hashtag:hover {
+  cursor: pointer;
+  background-color: rgb(241, 241, 241);
+}

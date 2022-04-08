@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom'
 
-export default function Login() {
+export default function Login({ authState, setAuthState }) {
     let [username, setUsername] = useState('')
     let [password, setPassword] = useState('')
     let [error, setError] = useState('')
@@ -44,8 +44,8 @@ export default function Login() {
     return (
         <div className="login-page">
             <div className="form">
-                <form className="login-form">
-                    <input type="text" placeholder="username" onInput={(e) => {
+                <form className="input-form">
+                    <input type="text" placeholder="email" onInput={(e) => {
                         setUsername(e.target.value)
                     }} value={username} />
                     <input type="password" placeholder="password" onInput={(e) => {
@@ -57,10 +57,28 @@ export default function Login() {
                             submitLogin()
                         }}
                     >login</button>
-                    <p className="message">Not registered? <Link to="/register">
-                        Create an account
-                    </Link>
+                    <p className="message">Not registered?
+
+                        <span className="link" onClick={(e) => {
+                            e.preventDefault()
+                            setAuthState("register")
+                        }}> Create an account
+
+                        </span>
+                        <br />
+
                     </p>
+
+                    <button style={{ "margin-top": "15px" }}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            setUsername("example@example.com");
+                            setPassword("Password1234");
+                            submitLogin();
+                        }}
+                    >
+                        Use Demo Account
+                    </button>
                 </form>
             </div>
         </div>

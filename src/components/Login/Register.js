@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { DebounceInput } from 'react-debounce-input';
 import { UserContext } from '../../contexts/UserContext';
 
-export default function Register() {
+export default function Register({ authState, setAuthState }) {
     let [usernameError, setUsernameError] = useState(null)
     let [emailError, setEmailError] = useState(null)
     let [passwordError, setPasswordError] = useState(null)
@@ -121,7 +121,9 @@ export default function Register() {
                         e.preventDefault()
                         submitRegistration()
                     }}>create</button>
-                    <p className="message">Already registered? <Link to="/login"> Sign In </Link></p>
+                    <p className="message">Already registered? <span className="link" onClick={(e) => {
+                        setAuthState("login");
+                    }}> Sign in </span></p>
                 </form>
 
             </div>

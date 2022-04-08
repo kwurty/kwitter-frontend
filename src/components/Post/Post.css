@@ -1,9 +1,9 @@
 .post {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   color: var(--white);
-  width: 100%;
-  min-width: 500px;
+
   border-top: 1px solid rgb(219, 219, 219);
   padding-top: 10px;
 }
@@ -22,6 +22,44 @@
   padding-left: 15px;
 }
 
+.post .info .date {
+  line-height: 15px;
+  cursor: default;
+}
+
+.post .info .liked {
+  z-index: 10;
+  line-height: 15px;
+  color: var(--light-blue);
+  transition: transform 0.2s;
+}
+
+.post .info .liked:hover {
+  cursor: pointer;
+  font-size: 15px;
+  transform: scale(1.5);
+}
+
+.post .info .likes-count {
+  font-size: smaller;
+}
+
+.post .info .not-liked {
+}
+
+.post .info .not-liked:hover {
+  color: red;
+  transform: scale(1.5);
+  font-size: 15px;
+}
+
+.post .author .displayname {
+  font-size: medium;
+  padding-left: 5px;
+  color: var(--black);
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .post .author .username {
   color: #8a8a8a;
   margin-left: 5px;
@@ -84,4 +122,32 @@
   font-size: smaller;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.post .content a {
+  color: rgb(29, 155, 240);
+}
+
+.post .content a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1200px) {
+  .post {
+    min-width: 0;
+    width: auto;
+    max-width: 500px;
+  }
+
+  .post .content {
+    font-size: small;
+  }
+
+  .post .content .title {
+    font-size: medium;
+  }
+
+  .post .content a {
+    font-size: small;
+  }
 }

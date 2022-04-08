@@ -1,0 +1,269 @@
+a {
+  text-decoration: none;
+  color: var(--colorPrimary);
+  font-size: 18px;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+}
+
+.sidebar {
+  height: 100%;
+
+  border-right: 1px solid #fff2;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+}
+
+.sidebar .navbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 100;
+}
+
+.sidebar .navbar .navbar-brand {
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 8px 8px 4px 0px;
+  border-radius: 50%;
+  width: 50px;
+}
+
+.sidebar .navbar .navbar-brand:hover {
+  background: var(--brandBackground);
+  width: auto;
+}
+
+.sidebar .navbar .navbar-brand img {
+  filter: invert(1);
+  width: 50px;
+}
+
+.sidebar .navbar .navbar-brand a {
+  text-decoration: none;
+  color: var(--brandColor);
+}
+
+.sidebar .navbar .navbar-brand a ion-icon {
+  font-size: 30px;
+}
+
+.sidebar .navbar .nav-item {
+  padding: 8px 25px 8px 10px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar .navbar .nav-item:hover {
+  background: var(--itemBackground);
+}
+
+.sidebar .navbar .nav-item .item-icon {
+  margin-right: 15px;
+}
+
+.sidebar .navbar .nav-item .item-icon ion-icon {
+  font-size: 26px;
+  --ionicon-stroke-width: 30px;
+}
+
+.sidebar .navbar .nav-item .item-icon.home ion-icon {
+  font-size: 24px;
+}
+
+.sidebar .navbar .nav-item .item-icon.hash {
+  padding: 0 2px;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.sidebar .navbar a.tweet-btn {
+  display: block;
+  width: 230px;
+  background: var(--light-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sidebar .navbar a.tweet-btn:hover {
+  --light-blue: #1d9bf0ee;
+}
+
+.sidebar .navbar a.tweet-btn ion-icon {
+  font-size: 20px;
+  color: #fff;
+  display: none;
+}
+
+.sidebar .navbar a.profile-btn {
+  width: 175px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+.sidebar .profile-btn:hover {
+  background: var(--itemBackground);
+}
+
+.sidebar .profile-info {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: ; */
+  align-items: center;
+}
+
+img.profile-img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-info .name {
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.profile-info .username {
+  color: var(--colorSecondary);
+}
+
+.profile-info img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+.option-icon ion-icon {
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* sub items start ------------------------------------------------- */
+
+.sub-items-box {
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  /* background: var(--background); */
+  box-shadow: 0 0 10px #fff5;
+  width: 190px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: none;
+  z-index: 100;
+}
+
+.sub-items-box.active {
+  display: block;
+}
+
+.sub-item {
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sub-item:hover {
+  /* background: #15181c; */
+}
+
+.sub-item .item-icon {
+  margin-right: 10px;
+}
+
+.sub-item .item-icon ion-icon {
+  font-size: 18px;
+}
+
+.sub-item .item-link {
+  font-size: 14px;
+}
+
+.config {
+  padding-top: 2px;
+  margin-top: 2px;
+  border-top: 1px solid #fff2;
+}
+
+/* overlay ----------------------------------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  display: none;
+  z-index: 10;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Responsive ----------------------------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .sidebar .navbar nav.sidebar {
+    width: auto;
+  }
+
+  .sidebar .navbar .nav-item {
+    padding: 9px 11px;
+  }
+  .nav-item .item-icon {
+    margin-right: 0;
+  }
+  .nav-item .item-link {
+    display: none;
+  }
+  .nav-item.hash {
+    width: 48px;
+    height: 48px;
+  }
+  .sidebar .navbar a.tweet-btn {
+    line-height: 0;
+    font-size: 20px;
+    width: auto;
+    padding: 12px 12px;
+  }
+  .sidebar .navbar a.tweet-btn ion-icon {
+    display: inline-block;
+  }
+  .sidebar .navbar a.tweet-btn .text {
+    display: none;
+  }
+  .sidebar .profile-info > div {
+    display: none;
+  }
+  a.profile-btn .option-icon {
+    display: none;
+  }
+  img.profile-img {
+    margin-right: 0;
+  }
+  a.profile-btn {
+    width: 55px;
+  }
+}

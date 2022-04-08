@@ -6,7 +6,7 @@ import './Nav.css';
 export default function Nav() {
     const user = React.useContext(UserContext)
     return (
-        <nav>
+        <nav className="topnav">
             <ul className="menu">
                 <li className="logo"><Link to="/">Kwitter</Link></li>
                 {

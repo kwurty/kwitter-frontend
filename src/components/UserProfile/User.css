@@ -1,0 +1,83 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  color: var(--black);
+  border-top: 1px solid rgb(219, 219, 219);
+  padding-top: 10px;
+}
+
+.user:hover {
+  cursor: pointer;
+  background-color: rgb(241, 241, 241);
+}
+
+.user .author {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+
+.user .author .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font: 1.2em sans-serif;
+  color: var(--white);
+  width: 40px;
+  background: var(--light-blue);
+  border-radius: 100%;
+}
+
+.user .author .user-top .displayname {
+  font-size: large;
+  padding-left: 5px;
+  color: var(--black);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.user .author .user-top .username {
+  color: #8a8a8a;
+  margin-left: 5px;
+  font-size: smaller;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.user .author .user-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user .info .date {
+  line-height: 15px;
+  cursor: default;
+}
+
+.user .author .user-top .follow-button-container {
+  padding-right: 15px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.user .author .user-top .follow-button-container button {
+  background-color: rgb(15, 20, 25);
+  padding-right: 16px;
+  padding-left: 16px;
+  border-radius: 9999px;
+  border: 0;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.user .author .user-top .follow-button-container button:hover {
+  background-color: rgb(39, 44, 48);
+  cursor: pointer;
+}

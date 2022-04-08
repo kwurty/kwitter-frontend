@@ -1,0 +1,48 @@
+import React from 'react'
+import './UserHover.css'
+
+
+export default function UserHover() {
+    return (
+        <div className="user-hover">
+            <div className="twitter-card">
+                <div className="row-top">
+                    <div className="user-wrapper">
+                        <span className="user-image"></span>
+                        <div className="profile-user">
+                            <span className="user">Jane Doe</span>
+                            <span className="username">@JaneDoe_</span>
+                        </div>
+                    </div>
+                    <span className="follow">Follow</span>
+                </div>
+                <p className="profile-bio">Geek, Chef, Connector of Awesomeness, Information Addict, Part-time dictator, full time foodie. I walk faster when I see a creepy van.</p>
+                <div className="row-middle">
+                    <span className="profile-location">
+                        <i className="fas fa-map-marker-alt"></i>
+                        London, United Kingdom
+                    </span>
+                    <span className="profile-website">
+                        <i className="fas fa-link"></i>
+                        <a href="#">https://www.instagram.com/janedoe_</a>
+                    </span>
+                </div>
+                <div className="row-bottom">
+                    <span className="followers-count">
+                        Followers
+                        <span className="count-meta">10K</span>
+                    </span>
+                    <span className="following-count">
+                        Following
+                        <span className="count-meta">6K</span>
+
+                    </span>
+                    <span className="likes-count">
+                        Likes
+                        <span className="count-meta">512</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    )
+}

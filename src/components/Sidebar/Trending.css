@@ -1,0 +1,51 @@
+.trending-bar {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  max-width: 500px;
+  min-width: 300px;
+
+  background: rgb(22, 24, 28);
+  color: var(--white);
+}
+
+.trending-bar h1 {
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-bottom: 20px;
+  font-size: larger;
+}
+
+.trending-bar .trending-item {
+  padding: 15px 15px 15px 25px;
+}
+
+.trending-bar .trending-item:hover {
+  background: rgb(46, 50, 59);
+  cursor: pointer;
+}
+
+.trending-bar:last-child:hover {
+}
+
+.trending-bar .trending-more {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  font-size: smaller;
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.trending-bar .trending-more a {
+  font-size: small;
+  color: rgb(29, 155, 240);
+}
+
+@media screen and (max-width: 1200px) {
+  .trending-bar {
+    min-width: 200px;
+  }
+}

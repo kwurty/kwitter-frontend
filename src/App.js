@@ -1,36 +1,69 @@
 // import { useState } from 'react';
 
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { UserContextProvider } from './contexts/UserContext';
-import Nav from './components/Nav/Nav';
-import PostList from './components/PostList/PostList';
 import Login from './components/Login/Login';
 import Register from './components/Login/Register';
-import { render } from 'react-dom'
+import Search from './components/Search/Search';
+import Profile from './components/UserProfile/UserProfile'
 import {
   BrowserRouter,
   Routes,
   Route
 } from 'react-router-dom'
 import Homescreen from './views/Homescreen';
+import SideNav from './components/Sidebar/SideNav';
+
+import Trending from './components/Sidebar/Trending'
+import Searchbar from './components/Search/Searchbar'
+import NotLogged from './components/Login/NotLogged';
+import Explore from './views/Explore';
+
+import { UserContext } from './contexts/UserContext';
 
 function App() {
-  return (
-    <div className="App">
-      <UserContextProvider>
-        <BrowserRouter>
-          <Nav />
-          <div className="center">
 
-            <Routes>
-              <Route path="/" element={<Homescreen />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </UserContextProvider>
+
+  const user = React.useContext(UserContext)
+
+  return (
+    <div className="App" id="app">
+      <BrowserRouter>
+        {
+          user.user.auth ? (
+            <div className="center">
+              <div class="left-panel">
+                <SideNav />
+              </div>
+              <div className="middle-panel">
+                <div className="search-bar">
+                  <Searchbar />
+                </div>
+                <Routes>
+                  <Route path="/" element={<Homescreen />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/profile/:username" element={<Profile />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/search/:keyword" element={<Search />} />
+                  <Route path="/explore" element={<Explore />} />
+                </Routes>
+              </div>
+
+              <div className="right-panel">
+                <Searchbar />
+                <Trending></Trending>
+
+              </div>
+
+            </div>
+          )
+            :
+            (
+              <NotLogged />
+            )
+        }
+
+      </BrowserRouter>
     </div>
   );
 }

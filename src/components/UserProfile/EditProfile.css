@@ -1,0 +1,53 @@
+.edit-user-profile {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.edit-user-profile .form {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-user-profile .form .input-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-user-profile .form .input-form label {
+  font-size: larger;
+  padding-top: 15px;
+}
+
+.edit-user-profile .form .input-form .input-field {
+  margin-top: 5px;
+  width: 400px;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #d0cfce;
+  outline: none;
+
+  border-radius: 50px;
+}
+.edit-user-profile .form button {
+  cursor: pointer;
+  width: 230px;
+  background: var(--light-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0;
+}
+
+.edit-user-profile .form button:hover {
+  --light-blue: #1d9bf0ee;
+}

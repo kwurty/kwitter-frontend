@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+:root {
+  --grey: hsl(214, 7%, 47%);
+  --light-grey: #eee;
+  --font-large: 20px;
+  --font-small: 14px;
+}
+
+.user-hover .twitter-card {
+  z-index: 999;
+  width: 600px;
+  height: 300px;
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--white);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.user-hover .twitter-card .row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.user-hover .twitter-card .user-wrapper .user-image {
+  background-image: url("https://bit.ly/2NIfSbx");
+  background-position: center;
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-hover .twitter-card .user-wrapper .profile-user > * {
+  display: block;
+}
+
+.user-hover .twitter-card .user-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.user-hover .twitter-card .top-row .follow {
+  padding: 10px 30px;
+  border: 1px solid var(--light-blue);
+  border-radius: 30px;
+  color: var(--light-blue);
+  font-weight: bold;
+  transition: all 0.2s ease-out;
+}
+
+.user-hover .twitter-card .top-row .follow:hover {
+  background-color: var(--light-blue);
+  color: var(--white);
+}
+
+.user-hover .twitter-card .top-row .user-wrapper .profile-user .user {
+  font-size: var(--font-large);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.user-hover .twitter-card .top-row .user-wrapper .profile-user .username {
+  font-size: var(--font-small);
+  color: var(--grey);
+}
+
+.user-hover .twitter-card .profile-bio {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
+.user-hover .twitter-card .row-middle {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-hover .twitter-card .row-middle .profile-location {
+  font-size: var(--font-small);
+  color: var(--grey);
+  margin-bottom: 10px;
+}
+
+.user-hover .twitter-card .row-middle .profile-location > i,
+.user-hover .twitter-card .row-middle .profile-website > i {
+  font-size: 1rem;
+  color: var(--grey);
+  margin-right: 5px;
+}
+
+.user-hover .twitter-card .row-middle .profile-website > i {
+  margin-right: 2px;
+}
+
+.user-hover .twitter-card .row-middle .profile-website {
+  margin-bottom: 1.2rem;
+}
+
+.user-hover .twitter-card .row-middle .profile-website > a {
+  text-decoration: none;
+  font-size: var(--font-small);
+  color: var(--light-blue);
+}
+
+.user-hover .twitter-card .row-bottom {
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-hover .twitter-card .row-bottom > *:not(:first-child) {
+  padding-left: 6rem;
+}
+
+.user-hover .twitter-card .row-bottom .followers-count,
+.user-hover .twitter-card .row-bottom .following-count,
+.user-hover .twitter-card .row-bottom .likes-count {
+  color: var(--grey);
+}
+
+.user-hover .twitter-card .row-bottom > .count-meta {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: var(--black);
+}

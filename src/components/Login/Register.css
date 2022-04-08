@@ -1,86 +1,64 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
 .registration-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+  display: flex;
+
+  flex-direction: column;
 }
-.form {
-  position: relative;
-  z-index: 1;
+
+.registration-page .form {
+  margin-bottom: 25px;
+  background-color: var(--dark-blue);
+  border-radius: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-width: 450px;
+}
+
+.registration-page .form .input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration-page .form .input-form input {
+  background-color: lightblue;
+  padding: 1em 1em 1em 1.5em;
+  margin: 1em auto;
+  border: 0;
+  width: 300px;
+  background: #eee;
+  border-radius: 50px;
+}
+
+.registration-page .form .input-form button {
+  width: 230px;
   background: var(--light-blue);
-  max-width: 360px;
-  margin: 0 auto 0px;
-  padding: 45px;
+  color: var(--colorWhite);
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: solid 1px var(--light-blue);
-  margin: 0 0 15px;
   padding: 15px;
-  box-sizing: border-box;
+  margin-top: 5px;
+  border-radius: 50px;
   font-size: 14px;
+  font-weight: bold;
+  border: 0;
+  margin-bottom: 15px;
 }
 
-.form .error {
-  background-color: #fce4e4;
-  border: 1px solid #cc0033;
-  outline: none;
-}
-
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: var(--dark-blue);
-  width: 100%;
-  border: solid 1px var(--dark-blue);
-  padding: 15px;
-  color: #ffffff;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+.registration-page .form .input-form button:hover {
+  --light-blue: #1d9bf0ee;
   cursor: pointer;
 }
-.form button:hover,
-.form button:active,
-.form button:focus {
-  background: var(--dark-blue);
-  border: solid 1px;
-  border-color: var(--yellow);
+
+.registration-page .message .link {
+  color: var(--light-blue);
 }
-.form .message {
-  margin: 15px 0 0;
-  color: var(--white);
-  font-size: 12px;
-}
-.form .message a {
-  color: var(--yellow);
-  text-decoration: none;
-}
-.form .register-form {
-  display: none;
+
+.registration-page .message .link:hover {
+  cursor: pointer;
+  --light-blue: #1d9bf0ee;
+  color: var(--light-blue);
 }
 
 .registration-page .errors {
-  background-color: var(--yellow);
-  color: var(--black);
-  text-align: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  color: var(--light-red);
 }
-/* body {
-  background: #003049;
-  background: -webkit-linear-gradient(right, #003049, #003589);
-  background: -moz-linear-gradient(right, #003049, #003589);
-  background: -o-linear-gradient(right, #003049, #003589);
-  background: linear-gradient(to left, #003049, #003589);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
