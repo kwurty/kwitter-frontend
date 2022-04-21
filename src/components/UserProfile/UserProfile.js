@@ -13,34 +13,31 @@ export default function UserProfile() {
 
     const [userInfo, setUserInfo] = useState(null)
     const [posts, setPosts] = useState(null)
-    const [isFollowing, setIsFolowing] = useState(null)
+    const [isFollowing, setIsFollowing] = useState(null)
 
     let joinedDate = null
 
     const user = React.useContext(UserContext)
 
-    useEffect(() => {
+    const followUser = async () => {
+        let myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${user.user.token}`);
 
+        let requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
 
-        const retrieveDetails = async () => {
-            let myHeaders = new Headers();
-            myHeaders.append("Authorization", `Bearer ${user.user.token}`);
-
-            let requestOptions = {
-                method: 'GET',
-                headers: myHeaders,
-                redirect: 'follow'
-            };
-
-            let user_detail = await fetch(`${process.env.REACT_APP_API_URL}/users/${username}`, requestOptions)
-            let user_status = await user_detail.status
-            if (user_status === 200) {
-                user_detail = await user_detail.json()
-                setUserInfo(user_detail)
-                setIsFolowing(user_detail.is_following)
-
-            }
+        let submit_follow = await fetch(`${process.env.REACT_APP_API_URL}/users/follow/${userInfo.id}`, requestOptions);
+        let follow_status = await submit_follow.status
+        if (follow_status === 201) {
+            let follow_results = await submit_follow.json()
+            setIsFollowing(follow_results.following);
         }
+    }
+
+    useEffect(() => {
 
         const retrievePosts = async () => {
             let myHeaders = new Headers();
@@ -63,11 +60,33 @@ export default function UserProfile() {
 
         }
 
-        retrieveDetails()
         retrievePosts()
 
     }, [])
 
+    useEffect(() => {
+        const retrieveDetails = async () => {
+            let myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${user.user.token}`);
+
+            let requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            let user_detail = await fetch(`${process.env.REACT_APP_API_URL}/users/${username}`, requestOptions)
+            let user_status = await user_detail.status
+            if (user_status === 200) {
+                user_detail = await user_detail.json()
+                setUserInfo(user_detail)
+                setIsFollowing(user_detail.is_following)
+
+            }
+        }
+
+        retrieveDetails()
+    }, [isFollowing])
 
     return (
         <>
@@ -100,16 +119,18 @@ export default function UserProfile() {
                                     <div className="follow">
 
                                         {
-                                            userInfo.isFollowing ? (
+                                            isFollowing ? (
                                                 <div className="is-following">
-                                                    <button>
+                                                    <button
+                                                        onClick={followUser}>
                                                         Unfollow
                                                     </button>
                                                 </div>
                                             )
                                                 :
                                                 <div className="is-not-following">
-                                                    <button>
+                                                    <button
+                                                        onClick={followUser}>
                                                         Follow
                                                     </button>
                                                 </div>
@@ -133,8 +154,8 @@ export default function UserProfile() {
                         </div>
 
                         <div className="posts-list">
-                            {posts && posts.map((post) => (
-                                <Post post={post} />
+                            {posts && posts.map((post, ind) => (
+                                <Post key={ind} post={post} />
                             ))}
                         </div>
 

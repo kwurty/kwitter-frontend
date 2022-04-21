@@ -67,15 +67,26 @@
 }
 
 .userprofile header .follow .is-following button {
-  color: rgb(15, 20, 25);
+  min-width: 80px;
+  color: var(--black);
+
   border: 1px solid rgb(207, 217, 222);
   padding-right: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   padding-left: 16px;
   border-radius: 9999px;
   border: 0;
-  color: var(--white);
   font-weight: 700;
 }
+
+.userprofile header .follow .is-following {
+  color: rgb(15, 20, 25);
+}
+.userprofile header .follow .is-following button:hover {
+  background-color: rgb(170, 170, 170);
+}
+
 .userprofile header .follow .is-not-following button {
   min-width: 80px;
   background-color: rgb(15, 20, 25);

@@ -81,3 +81,25 @@
   background-color: rgb(39, 44, 48);
   cursor: pointer;
 }
+
+.user .author .user-top .follow-button-container {
+  padding-right: 15px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.user .author .user-top .follow-button-container .unfollow-button {
+  background-color: var(--white);
+  padding-right: 16px;
+  padding-left: 16px;
+  border-radius: 9999px;
+  border: solid 1px rgb(15, 20, 25);
+  color: var(--black);
+  font-weight: 700;
+}
+
+.user .author .user-top .follow-button-container .unfollow-button:hover {
+  background-color: rgb(201, 201, 201);
+  cursor: pointer;
+}

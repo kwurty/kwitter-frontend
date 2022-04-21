@@ -30,10 +30,10 @@ export default function Trending() {
     return (
         <div className="trending-bar">
             <h1> What's happening </h1>
-            {trending.map((tag) => {
+            {trending.map((tag, i) => {
                 return (
 
-                    <Link to={`/search/${tag.hashtag}`} >
+                    <Link to={`/search/${tag.hashtag}`} key={i}>
                         <div className="trending-item">
                             {tag.hashtag}
                         </div>

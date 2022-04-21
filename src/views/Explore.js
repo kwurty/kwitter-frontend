@@ -72,8 +72,8 @@ export default function Explore() {
         <div className="explore">
             <div className="random-posts">
                 <h1> Posts</h1>
-                {posts.map((post) => (
-                    <Post post={post}>
+                {posts.map((post, i) => (
+                    <Post post={post} key={i}>
 
                     </Post>
                 ))}
@@ -82,18 +82,17 @@ export default function Explore() {
                 <h1>
                     Users
                 </h1>
-                {users.map((user) => (
-                    <div>
-                        <User user={user} />
-                    </div>
+                {users.map((user, i) => (
+
+                    <User user={user.User} followed={user.follow_user_id} key={i} />
                 ))}
             </div>
             <div className="random-hashtags">
                 <h1>
                     Trending Topics
                 </h1>
-                {hashtags.map((hashtag) => (
-                    <div className="hashtag">
+                {hashtags.map((hashtag, i) => (
+                    <div className="hashtag" key={i}>
                         <Link to={`/search/${hashtag.hashtag}`} >
                             #{hashtag.hashtag}
 

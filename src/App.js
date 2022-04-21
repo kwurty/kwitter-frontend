@@ -32,7 +32,7 @@ function App() {
         {
           user.user.auth ? (
             <div className="center">
-              <div class="left-panel">
+              <div className="left-panel">
                 <SideNav />
               </div>
               <div className="middle-panel">
