@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'
 import Post from '../Post/Post'
+import { toast } from 'react-toastify';
 // import '../post'
 
 export default function Search() {

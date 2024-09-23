@@ -48,7 +48,7 @@ export default function SideNav() {
 
             </ul>
 
-            <Link to="/profile">
+            <Link to={`/profile/${user.user.username}`}>
                 <div className="profile-info">
                     <img src={defaultProfilePicture} alt='' className="profile-picture"></img>
                     <div>

@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import Register from './components/Login/Register';
 import Search from './components/Search/Search';
 import Profile from './components/UserProfile/UserProfile'
+import EditProfile from './components/UserProfile/EditProfile'
 import {
   BrowserRouter,
   Routes,
@@ -43,6 +44,7 @@ function App() {
                   <Route path="/" element={<Homescreen />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/profile/:username" element={<Profile />} />
+                  <Route path="/profile/edit" element={<EditProfile />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/search/:keyword" element={<Search />} />
                   <Route path="/explore" element={<Explore />} />

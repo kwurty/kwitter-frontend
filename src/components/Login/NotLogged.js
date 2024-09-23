@@ -5,6 +5,7 @@ import Register from './Register'
 import Kwitter from '../../images/kwitter.png'
 import { UserContext } from '../../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 export default function NotLogged() {
     const [authState, setAuthState] = useState(undefined)
@@ -26,8 +27,14 @@ export default function NotLogged() {
         let response = await fetch(`${process.env.REACT_APP_API_URL}/login/`, requestOptions)
 
         let status = await response.status
-        if (status === 403) {
-
+        if (status !== 200) {
+            toast.error('There was an issue logging in, please try again.', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                pauseOnHover: false,
+                draggable: false
+            });
         } else {
             let userInfo = await response.json()
             user.login(userInfo.access_token)

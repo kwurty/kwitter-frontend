@@ -4,6 +4,7 @@ import './Register.css'
 import { Link } from "react-router-dom";
 import { DebounceInput } from 'react-debounce-input';
 import { UserContext } from '../../contexts/UserContext';
+import { toast } from 'react-toastify';
 
 export default function Register({ authState, setAuthState }) {
     let [usernameError, setUsernameError] = useState(null)
@@ -67,8 +68,15 @@ export default function Register({ authState, setAuthState }) {
             let response = await fetch(`${process.env.REACT_APP_API_URL}/users/`, requestOptions)
             let status = await response.status
 
-            if (status === 400) {
+            if (status !== 200) {
                 let error = await response.json()
+                toast.error('There was an issue registering, please try again.', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    pauseOnHover: false,
+                    draggable: false
+                });
                 setRegError(error.detail);
                 setTimeout(() => {
                     setRegError(null)

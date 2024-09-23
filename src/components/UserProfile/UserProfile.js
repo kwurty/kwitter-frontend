@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { DebounceInput } from 'react-debounce-input'
 import { UserContext } from '../../contexts/UserContext'
 import './UserProfile.css'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import defaultProfilePicture from '../../images/usericon.png'
 import Post from '../Post/Post';
@@ -112,7 +113,9 @@ export default function UserProfile() {
                             {
                                 userInfo.id === user.user.id ?
                                     <div className='edit-profile'>
-                                        <button>Edit Profile</button>
+                                        <Link to={`/profile/${user.user.username}`}>
+                                            <button>Edit Profile</button>
+                                        </Link>
                                     </div>
                                     :
 

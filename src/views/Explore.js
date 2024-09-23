@@ -4,6 +4,7 @@ import Post from '../components/Post/Post'
 import User from '../components/UserProfile/User'
 import './Explore.css'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 export default function Explore() {
 

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { checkForUser, logoutUser } from '../utils/LoadUser'
 import jwt_decode from "jwt-decode";
+import { toast } from 'react-toastify';
 
 const UserContext = createContext({ name: '', auth: false });
 // This also works: const UserContext = createContext();

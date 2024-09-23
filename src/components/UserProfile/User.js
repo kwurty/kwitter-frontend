@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'
 import { useState } from 'react'
 import './User.css'
+import { toast } from 'react-toastify';
 
 
 export default function User({ user, followed }) {

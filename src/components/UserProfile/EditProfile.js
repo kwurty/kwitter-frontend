@@ -76,16 +76,23 @@ export default function EditProfile() {
 
 
     const submitEdits = async () => {
-        let myHeaders = new Headers();
-        myHeaders.append("Authorization", `Bearer ${user.user.token}`);
+        let headers = new Headers();
+        headers.append("Authorization", `Bearer ${user.user.token}`);
+        headers.append("Content-Type", "application/json");
+
+        let raw = JSON.stringify({
+            "email": email,
+            "displayname": displayname
+        });
 
         let requestOptions = {
             method: 'PUT',
-            headers: myHeaders,
-            redirect: 'follow'
+            headers: headers,
+            redirect: 'follow',
+            body: raw
         };
 
-        let user_detail = await fetch(`${process.env.REACT_APP_API_URL}/users`, requestOptions)
+        let user_detail = await fetch(`${process.env.REACT_APP_API_URL}/users/${user.user.id}`, requestOptions)
         let status = await user_detail.status
         if (status === 200) {
             user_detail = await user_detail.json()
@@ -137,8 +144,8 @@ export default function EditProfile() {
                 </form>
                 <div>
                     <button onClick={(e) => {
-                        e.preventDefault()
-
+                        e.preventDefault();
+                        submitEdits();
                     }}>Update</button>
                 </div>
 

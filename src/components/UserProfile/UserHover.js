@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './UserHover.css'
 import { UserContext } from '../../contexts/UserContext'
 import Loading from '../Loading/Loading'
+import { toast } from 'react-toastify';
 
 export default function UserHover({ user }) {
 

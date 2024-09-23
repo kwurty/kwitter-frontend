@@ -8,6 +8,7 @@ import { UserContext } from '../../contexts/UserContext'
 import UserHover from '../UserProfile/UserHover';
 import FadeInOut from '../../utils/FadeInOut';
 import hashtagParser from '../../utils/HashtagMatcher';
+import { toast } from 'react-toastify';
 
 
 export default function Post({ post }) {

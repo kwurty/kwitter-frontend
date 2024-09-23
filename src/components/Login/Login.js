@@ -3,6 +3,7 @@ import './Login.css'
 import { Link } from "react-router-dom";
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 export default function Login({ authState, setAuthState }) {
     let [username, setUsername] = useState('')
@@ -22,17 +23,26 @@ export default function Login({ authState, setAuthState }) {
         let requestOptions = {
             method: 'POST',
             body: formdata,
+            crossDomain: true,
         };
 
         let response = await fetch(`${process.env.REACT_APP_API_URL}/login/`, requestOptions)
 
         let status = await response.status
-        if (status === 403) {
+        if (status !== 200) {
             let loginError = await response.json()
             setError(loginError.detail);
             setTimeout(() => {
                 setError(null)
             }, 8000);
+
+            toast.error('There was an issue logging in, please try again.', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                pauseOnHover: false,
+                draggable: false
+            });
         } else {
             let userInfo = await response.json()
             user.login(userInfo.access_token)

@@ -3,6 +3,7 @@ import { UserContext } from '../../contexts/UserContext'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './PostList.css'
 import Post from "../Post/Post"
+import { toast } from 'react-toastify';
 
 export default function PostList({ reloadPosts, setReloadPosts }) {
 
